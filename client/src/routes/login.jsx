@@ -35,7 +35,7 @@ export const Login = () => {
       const data = await response.json();
       console.log({ response: data });
       console.log(formData);
-      navigate("/");
+      navigate("/app/home");
     } catch (err) {
       console.log(`failed to fetch: ${err}`);
     }

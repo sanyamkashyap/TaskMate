@@ -8,6 +8,7 @@ import Home from "./routes/home.jsx";
 import Main from "./components/main.jsx";
 import ColumnForm from "./components/Column/columnForm.jsx";
 import ProjectForm from "./components/projectForm.jsx";
+import LandingPage from "./routes/landing.jsx";
 
 const projectsLoader = async () => {
   const response = await fetch("http://localhost:3000/project", {
@@ -27,16 +28,20 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
+    element: <LandingPage />,
+  },
+  {
+    path: "/app",
     element: <Layout />,
     loader: projectsLoader,
     children: [
       {
-        path: "/home",
+        path: "home",
         // element: <ColumnForm />,
         element: <Home />,
       },
       {
-        path: "/project/:projectId",
+        path: "project/:projectId",
         element: <Main />,
       },
     ],
